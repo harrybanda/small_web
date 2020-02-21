@@ -4,10 +4,12 @@ import logo from "../../images/logo.png";
 import img1 from "../../images/img1.png";
 import img2 from "../../images/img2.png";
 
-const GOOGLE_FORM_NAME_ID = "entry.569883621";
+const GOOGLE_FORM_NAME_ID = "entry.890943382";
+const GOOGLE_FORM_BUSINESS_ID = "entry.134064900";
+const GOOGLE_FORM_INDUSTRY_ID = "entry.1972110031";
 const GOOGLE_FORM_EMAIL_ID = "emailAddress";
 const GOOGLE_FORM_ACTION_URL =
-  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfp-VGAhfHnz1da4t9mACauVujyNPEt4FzCgF-zED3lC1tv1w/formResponse";
+  "https://docs.google.com/forms/d/e/1FAIpQLScARTfvsxdO2CCKbToWJfDe-nOO0yLDkdEH7hCmseGw-pPrnQ/formResponse";
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
 class LandingPage extends Component {
@@ -16,6 +18,8 @@ class LandingPage extends Component {
 
     this.state = {
       email: "",
+      business: "",
+      industry: "",
       name: ""
     };
   }
@@ -29,6 +33,14 @@ class LandingPage extends Component {
     this.setState({ name: event.target.value });
   };
 
+  handleBusinessChange = event => {
+    this.setState({ business: event.target.value });
+  };
+
+  handleIndustryChange = event => {
+    this.setState({ industry: event.target.value });
+  };
+
   handleEmailChange = event => {
     this.setState({ email: event.target.value });
   };
@@ -37,6 +49,8 @@ class LandingPage extends Component {
     const formData = new FormData();
     formData.append(GOOGLE_FORM_NAME_ID, this.state.name);
     formData.append(GOOGLE_FORM_EMAIL_ID, this.state.email);
+    formData.append(GOOGLE_FORM_BUSINESS_ID, this.state.business);
+    formData.append(GOOGLE_FORM_INDUSTRY_ID, this.state.industry);
     axios
       .post(CORS_PROXY + GOOGLE_FORM_ACTION_URL, formData, {
         headers: {
@@ -46,6 +60,8 @@ class LandingPage extends Component {
       .then(() => {
         this.setState({
           name: "",
+          business: "",
+          industry: "",
           email: ""
         });
         alert("Thank you.");
@@ -141,6 +157,32 @@ class LandingPage extends Component {
                             name="names"
                             value={this.state.name}
                             onChange={this.handleNameChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <input
+                            required
+                            className="input is-medium"
+                            type="text"
+                            placeholder="Business Name"
+                            name="busness name"
+                            value={this.state.business}
+                            onChange={this.handleBusinessChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="field">
+                        <div className="control">
+                          <input
+                            required
+                            className="input is-medium"
+                            type="text"
+                            placeholder="Industry"
+                            name="industry"
+                            value={this.state.industry}
+                            onChange={this.handleIndustryChange}
                           />
                         </div>
                       </div>
