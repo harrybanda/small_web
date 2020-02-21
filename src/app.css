@@ -1,0 +1,10 @@
+.landing {
+    background: #3c74db;
+}
+
+.header {
+    background: url('./images/landing_bg.png');
+    background-repeat: no-repeat;
+    background-size: 1200px auto;
+    background-position: right -200px bottom 0px;
+}
