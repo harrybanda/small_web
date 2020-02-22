@@ -75,7 +75,33 @@ class LandingPage extends Component {
     return (
       <div className="landing">
         <Fragment>
-          <section className="hero header">
+          <section className="hero header is-hidden-mobile">
+            <div className="hero-body">
+              <div className="container">
+                <div className="columns">
+                  <div className="column is-two-fifths">
+                    <img src={logo} alt="Small" width="150" />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <h1 className="title has-text-white is-1">
+                      Grow Big With the Small App
+                    </h1>
+                    <br />
+                    <h1 className="subtitle has-text-white is-4">
+                      Access loans • Accept digital payments • Manage your
+                      business
+                    </h1>
+                  </div>
+                  <div className="column"></div>
+                </div>
+                <br />
+                <br />
+              </div>
+            </div>
+          </section>
+          <section className="hero is-hidden-tablet is-hidden-desktop is-hidden-widescreen">
             <div className="hero-body">
               <div className="container">
                 <div className="columns">
