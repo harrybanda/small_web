@@ -1,255 +1,241 @@
-import React, { Component, Fragment } from "react";
-import axios from "axios";
-import logo from "../../images/logo.png";
+import React, { Component } from "react";
+import team from "../../team.json";
+import apple from "../../images/apple.png";
+import google from "../../images/google.png";
 import img1 from "../../images/img1.png";
 import img2 from "../../images/img2.png";
-
-const GOOGLE_FORM_NAME_ID = "entry.890943382";
-const GOOGLE_FORM_BUSINESS_ID = "entry.134064900";
-const GOOGLE_FORM_INDUSTRY_ID = "entry.1972110031";
-const GOOGLE_FORM_EMAIL_ID = "emailAddress";
-const GOOGLE_FORM_ACTION_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLScARTfvsxdO2CCKbToWJfDe-nOO0yLDkdEH7hCmseGw-pPrnQ/formResponse";
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
 class LandingPage extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      email: "",
-      business: "",
-      industry: "",
-      name: ""
-    };
   }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    this.sendMessage();
-  };
-
-  handleNameChange = event => {
-    this.setState({ name: event.target.value });
-  };
-
-  handleBusinessChange = event => {
-    this.setState({ business: event.target.value });
-  };
-
-  handleIndustryChange = event => {
-    this.setState({ industry: event.target.value });
-  };
-
-  handleEmailChange = event => {
-    this.setState({ email: event.target.value });
-  };
-
-  sendMessage = () => {
-    const formData = new FormData();
-    formData.append(GOOGLE_FORM_NAME_ID, this.state.name);
-    formData.append(GOOGLE_FORM_EMAIL_ID, this.state.email);
-    formData.append(GOOGLE_FORM_BUSINESS_ID, this.state.business);
-    formData.append(GOOGLE_FORM_INDUSTRY_ID, this.state.industry);
-    axios
-      .post(CORS_PROXY + GOOGLE_FORM_ACTION_URL, formData, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-        }
-      })
-      .then(() => {
-        this.setState({
-          name: "",
-          business: "",
-          industry: "",
-          email: ""
-        });
-        alert("Thank you.");
-      })
-      .catch(error => {
-        console.log(error.response);
-      });
-  };
 
   render() {
     return (
-      <div className="landing">
-        <Fragment>
-          <section className="hero header is-hidden-mobile">
-            <div className="hero-body">
-              <div className="container">
-                <div className="columns">
-                  <div className="column is-two-fifths">
-                    <img src={logo} alt="Small" width="150" />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <h1 className="title has-text-white is-1">
-                      Grow Big With the Small App
-                    </h1>
-                    <br />
-                    <h1 className="subtitle has-text-white is-4">
-                      Access loans • Accept digital payments • Manage your
-                      business
-                    </h1>
-                  </div>
-                  <div className="column"></div>
-                </div>
-                <br />
-                <br />
-              </div>
-            </div>
-          </section>
-          <section className="hero is-hidden-tablet is-hidden-desktop is-hidden-widescreen">
-            <div className="hero-body">
-              <div className="container">
-                <div className="columns">
-                  <div className="column is-two-fifths">
-                    <img src={logo} alt="Small" width="150" />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <h1 className="title has-text-white is-1">
-                      Grow Big With the Small App
-                    </h1>
-                    <br />
-                    <h1 className="subtitle has-text-white is-4">
-                      Access loans • Accept digital payments • Manage your
-                      business
-                    </h1>
-                  </div>
-                  <div className="column"></div>
-                </div>
-                <br />
-                <br />
-              </div>
-            </div>
-          </section>
-          <section className="section">
-            <br />
-            <br />
-            <br />
-            <br />
+      <>
+        <section className="hero header-image is-medium">
+          <div className="hero-body">
             <div className="container">
-              <div className="tile is-ancestor">
+              <h1 className="title is-2 has-text-white text-wrap-header">
+                Grow big with Small.
+              </h1>
+              <br />
+              <h2 className="subtitle has-text-white is-6 text-wrap-header">
+                Small enables pharmaceutical and consumer packaged goods
+                companies to sell and deliver to thousands of small shops across
+                Zambia, Malawi and Mozambique.
+              </h2>
+              <div className="buttons">
+                <a className="button drive" href="/">
+                  <span>Partner Sign up</span>
+                  <span className="icon">
+                    <i className="fas fa-angle-right" />
+                  </span>
+                </a>
+                <a className="button ship is-outlined is-white" href="/">
+                  <span>Shop Sign up</span>
+                  <span className="icon">
+                    <i className="fas fa-angle-right" />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="hero">
+          <div class="hero-body">
+            <div class="container">
+              <div class="columns">
                 <div
-                  className="tile is-vertical is-7"
-                  style={{ paddingLeft: "50px" }}
+                  class="column is-flex"
+                  style={{ justifyContent: "center" }}
                 >
-                  <div className="tile">
-                    <div className="tile is-parent is-vertical">
-                      <div className="tile is-child">
-                        <div className="tile is-child">
-                          <img src={img2} alt="Small" width="300" />
-                        </div>
-                        <h1 className="subtitle has-text-white is-4">
-                          From boutiques, to electronics stores
-                        </h1>
-                      </div>
-                      <br />
-                      <br />
-                      <br />
-                      <br />
-                      <div className="tile is-child">
-                        <div className="tile is-child">
-                          <img src={img1} alt="Small" width="300" />
-                        </div>
-                        <h1 className="subtitle has-text-white is-4">
-                          From Barbershops to salons
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
+                  {" "}
+                  <img src={img1} alt="Small" width="300" />
                 </div>
-                <div className="tile is-parent is-vertical">
-                  <div className="tile is-child"></div>
-                  <div className="tile is-child">
-                    <h1 className="title has-text-white is-1 has-text-centered">
-                      Join Wait list
-                    </h1>
-                    <h1 className="subtitle has-text-white is-4 has-text-centered">
-                      Be the first to know when we launch
-                    </h1>
-                    <form onSubmit={this.handleSubmit}>
-                      <div className="field">
-                        <div className="control">
-                          <input
-                            required
-                            className="input is-medium"
-                            type="text"
-                            placeholder="First and Last Name"
-                            name="names"
-                            value={this.state.name}
-                            onChange={this.handleNameChange}
-                          />
-                        </div>
-                      </div>
-                      <div className="field">
-                        <div className="control">
-                          <input
-                            required
-                            className="input is-medium"
-                            type="text"
-                            placeholder="Business Name"
-                            name="busness name"
-                            value={this.state.business}
-                            onChange={this.handleBusinessChange}
-                          />
-                        </div>
-                      </div>
-                      <div className="field">
-                        <div className="control">
-                          <input
-                            required
-                            className="input is-medium"
-                            type="text"
-                            placeholder="Industry"
-                            name="industry"
-                            value={this.state.industry}
-                            onChange={this.handleIndustryChange}
-                          />
-                        </div>
-                      </div>
-                      <div className="field">
-                        <div className="control">
-                          <input
-                            required
-                            className="input is-medium"
-                            type="email"
-                            placeholder="Email Address"
-                            name="email"
-                            value={this.state.email}
-                            onChange={this.handleEmailChange}
-                          />
-                        </div>
-                      </div>
-                      <div className="field">
-                        <p className="control">
-                          <button
-                            type="submit"
-                            className="button is-success is-medium is-fullwidth"
-                          >
-                            Join
-                          </button>
-                        </p>
-                      </div>
-                    </form>
-                  </div>
+                <div class="column">
+                  {" "}
+                  <h2 class="subtitle is-5 has-text-grey">
+                    Shops can now order inventory at affordable rates and have
+                    them delivered directly to their shops.
+                  </h2>
+                  <button class="button is-outlined">Shop sign up</button>
                 </div>
               </div>
             </div>
-          </section>
-          <footer className="footer" style={{ background: "#3c74db" }}>
-            <div className="content has-text-centered has-text-white">
-              <p>&copy; Copyright 2020, small.</p>
+          </div>
+        </section>
+
+        <section class="hero" style={{ background: "#3c74db" }}>
+          <div class="hero-body">
+            <div class="container">
+              <div class="columns">
+                <div class="column">
+                  {" "}
+                  <h2 class="subtitle is-5 has-text-white">
+                    Consumer packaged goods companies can reach thousands of
+                    small shops without building their own distribution network.
+                  </h2>
+                  <button class="button is-outlined">Partner sign up</button>
+                </div>
+                <div
+                  class="column is-flex"
+                  style={{ justifyContent: "center" }}
+                >
+                  {" "}
+                  <img src={img2} alt="Small" width="300" />
+                </div>
+              </div>
             </div>
-          </footer>
-        </Fragment>
-      </div>
+          </div>
+        </section>
+
+        <div className="container">
+          <br />
+          <br />
+          <h4
+            class="title is-3 has-text-grey-dark"
+            style={{ textAlign: "center" }}
+          >
+            Meet the Team
+          </h4>
+          <br />
+          <div class="columns is-multiline is-centered">
+            <Team team={team} />
+          </div>
+          <br />
+          <br />
+          <br />
+        </div>
+        <section class="hero has-text-centered has-background-light">
+          <div class="hero-body">
+            <div class="container">
+              <h2 class="subtitle is-5 has-text-grey">
+                Small is a team that is dedicated to solving big problems while
+                emphasising a great quality of life for its employees. We are
+                based in Nairobi and have offices in Zambia, Malawi and
+                Mozambique. Come join us
+              </h2>
+              <button class="button  is-info">Job Openings</button>
+            </div>
+          </div>
+        </section>
+        <footer className="footer">
+          <div className="columns" style={{ paddingLeft: "30px" }}>
+            <div className="column">
+              <ul>
+                <li className="subtitle is-6 has-text-white">
+                  <a className="account-btn hvr-grow-shadow" href="/">
+                    <span>Partner Sign up </span>
+                  </a>
+                </li>
+                <li className="subtitle is-6 has-text-white">
+                  <a className="apply-driver-btn" href="/">
+                    <span>Shop Sign up</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="column">
+              <ul>
+                <li className="subtitle is-6 has-text-white">
+                  <a>
+                    <span ClassName="subtitle is-6 has-text-white">
+                      About Us
+                    </span>
+                  </a>
+                </li>
+                <li className="subtitle is-6 has-text-white">
+                  <a className="subtitle is-6 has-text-white" href="/">
+                    Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="column">
+              <a href="/">
+                <img src={apple} width="148" />
+              </a>
+              <a href="/">
+                <img src={google} width="148" />
+              </a>
+              <ul>
+                <li />
+                <li />
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <nav className="level">
+            <div className="level-left">
+              <div className="level-item">
+                <ul id="social">
+                  <li>
+                    <a href="/">
+                      <i className="fab fa-facebook-square" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i className="fab fa-twitter-square" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i className="fab fa-linkedin" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i className="fab fa-instagram" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="level-right">
+              <p className="level-item has-text-white">
+                © {new Date().getFullYear()} Small Distribution Africa, Inc
+              </p>
+            </div>
+          </nav>
+        </footer>
+      </>
     );
   }
 }
+
+const Team = ({ team }) =>
+  team.map((mate) => (
+    <div class="column is-4-desktop is-3-widescreen is-half-tablet is-centered">
+      <Profile picture={mate.img} name={mate.name} position={mate.position} />
+    </div>
+  ));
+
+const Profile = ({ picture, linkedin, name, position }) => (
+  <div>
+    <img
+      src={picture}
+      style={{
+        "border-radius": "50%",
+        border: "1px solid rgb(187, 187, 187)",
+        height: "200px",
+        width: "200px",
+        textAlign: "center",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    />
+    <br />
+    <h4 class="title is-5 has-text-grey-dark" style={{ textAlign: "center" }}>
+      {name}
+    </h4>
+    <h4 class="subtitle is-6 has-text-grey" style={{ textAlign: "center" }}>
+      {position}
+    </h4>
+  </div>
+);
 
 export default LandingPage;

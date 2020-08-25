@@ -1,10 +1,97 @@
-.landing {
-    background: #3c74db;
+.header-image {
+    background: linear-gradient(to left, rgba(240, 175, 35, 0), #3c74db8c),
+        url('images/header.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-.header {
-    background: url('./images/landing_bg.png');
-    background-repeat: no-repeat;
-    background-size: 1200px auto;
-    background-position: right -200px bottom 0px;
+.button.is-white.is-outlined:hover {
+    color: #3c74db !important;
+}
+
+li {
+    width: 30%;
+}
+
+li.is-active span {
+    color: #3c74db !important;
+}
+
+li span {
+    color: white !important;
+}
+
+.tabs.is-boxed li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.drive {
+    color: #3c74db !important;
+}
+
+.ship {
+    color: #ffffff !important;
+}
+
+.screenshot {
+    width: 250px;
+    height: 444.5px;
+}
+
+.hit-title {
+    width: 250px;
+    word-break: normal;
+}
+
+.sec-level {
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.top-title {
+    color: #3c74db !important;
+}
+
+.sec-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.footer {
+    background: #3c74db !important;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+
+ul#social li {
+    display: inline;
+}
+
+ul#social li i {
+    color: white;
+    padding: 10px;
+    font-size: 1.3em;
+}
+
+hr {
+    opacity: 0.5 !important;
+    height: 0.5px !important;
+}
+
+.text-wrap-benfits {
+    width: 200px;
+    word-break: normal;
+}
+
+.text-wrap-header {
+    width: 400px;
+    word-break: normal;
+}
+
+.wraptext-wrap-hit {
+    width: 300px;
+    word-break: normal;
 }
