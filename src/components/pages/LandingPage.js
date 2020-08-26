@@ -91,31 +91,14 @@ class LandingPage extends Component {
           </div>
         </section>
 
-        <div className="container">
-          <br />
-          <br />
-          <h4
-            class="title is-3 has-text-grey-dark"
-            style={{ textAlign: "center" }}
-          >
-            Meet the Team
-          </h4>
-          <br />
-          <div class="columns is-multiline is-centered">
-            <Team team={team} />
-          </div>
-          <br />
-          <br />
-          <br />
-        </div>
         <section class="hero has-text-centered has-background-light">
           <div class="hero-body">
             <div class="container">
               <h2 class="subtitle is-5 has-text-grey">
                 Small is a team that is dedicated to solving big problems while
                 emphasising a great quality of life for its employees. We are
-                based in Nairobi and have offices in Zambia, Malawi and
-                Mozambique. Come join us
+                based in Nairobi and have offices in Zambia, and are launching
+                Malawi and Mozambique soon. Come join us.
               </h2>
               <button class="button  is-info">Job Openings</button>
             </div>
@@ -151,18 +134,6 @@ class LandingPage extends Component {
                     Blog
                   </a>
                 </li>
-              </ul>
-            </div>
-            <div className="column">
-              <a href="/">
-                <img src={apple} width="148" />
-              </a>
-              <a href="/">
-                <img src={google} width="148" />
-              </a>
-              <ul>
-                <li />
-                <li />
               </ul>
             </div>
           </div>
