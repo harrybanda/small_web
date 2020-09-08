@@ -26,7 +26,10 @@ class LandingPage extends Component {
                 Zambia, Malawi and Mozambique.
               </h2>
               <div className="buttons">
-                <a className="button drive" href="/">
+                <a
+                  className="button drive"
+                  href="https://forms.gle/bSNGgcmEqYCM8Zro9"
+                >
                   <span>Partner Sign up</span>
                   <span className="icon">
                     <i className="fas fa-angle-right" />
